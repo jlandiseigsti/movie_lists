@@ -17,9 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AccountState {
   String? get username => throw _privateConstructorUsedError;
-  String? get email => throw _privateConstructorUsedError;
-  String? get password => throw _privateConstructorUsedError;
-  String? get token => throw _privateConstructorUsedError;
+  int? get accountId => throw _privateConstructorUsedError;
+  String? get sessionId => throw _privateConstructorUsedError;
+  String? get requestToken => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AccountStateCopyWith<AccountState> get copyWith =>
@@ -32,7 +32,11 @@ abstract class $AccountStateCopyWith<$Res> {
           AccountState value, $Res Function(AccountState) then) =
       _$AccountStateCopyWithImpl<$Res, AccountState>;
   @useResult
-  $Res call({String? username, String? email, String? password, String? token});
+  $Res call(
+      {String? username,
+      int? accountId,
+      String? sessionId,
+      String? requestToken});
 }
 
 /// @nodoc
@@ -49,26 +53,26 @@ class _$AccountStateCopyWithImpl<$Res, $Val extends AccountState>
   @override
   $Res call({
     Object? username = freezed,
-    Object? email = freezed,
-    Object? password = freezed,
-    Object? token = freezed,
+    Object? accountId = freezed,
+    Object? sessionId = freezed,
+    Object? requestToken = freezed,
   }) {
     return _then(_value.copyWith(
       username: freezed == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String?,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      accountId: freezed == accountId
+          ? _value.accountId
+          : accountId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      sessionId: freezed == sessionId
+          ? _value.sessionId
+          : sessionId // ignore: cast_nullable_to_non_nullable
               as String?,
-      password: freezed == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String?,
-      token: freezed == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
+      requestToken: freezed == requestToken
+          ? _value.requestToken
+          : requestToken // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -82,7 +86,11 @@ abstract class _$$AccountStateImplCopyWith<$Res>
       __$$AccountStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? username, String? email, String? password, String? token});
+  $Res call(
+      {String? username,
+      int? accountId,
+      String? sessionId,
+      String? requestToken});
 }
 
 /// @nodoc
@@ -97,26 +105,26 @@ class __$$AccountStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? username = freezed,
-    Object? email = freezed,
-    Object? password = freezed,
-    Object? token = freezed,
+    Object? accountId = freezed,
+    Object? sessionId = freezed,
+    Object? requestToken = freezed,
   }) {
     return _then(_$AccountStateImpl(
       username: freezed == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
               as String?,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      accountId: freezed == accountId
+          ? _value.accountId
+          : accountId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      sessionId: freezed == sessionId
+          ? _value.sessionId
+          : sessionId // ignore: cast_nullable_to_non_nullable
               as String?,
-      password: freezed == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String?,
-      token: freezed == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
+      requestToken: freezed == requestToken
+          ? _value.requestToken
+          : requestToken // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -126,20 +134,20 @@ class __$$AccountStateImplCopyWithImpl<$Res>
 
 class _$AccountStateImpl implements _AccountState {
   const _$AccountStateImpl(
-      {this.username, this.email, this.password, this.token});
+      {this.username, this.accountId, this.sessionId, this.requestToken});
 
   @override
   final String? username;
   @override
-  final String? email;
+  final int? accountId;
   @override
-  final String? password;
+  final String? sessionId;
   @override
-  final String? token;
+  final String? requestToken;
 
   @override
   String toString() {
-    return 'AccountState(username: $username, email: $email, password: $password, token: $token)';
+    return 'AccountState(username: $username, accountId: $accountId, sessionId: $sessionId, requestToken: $requestToken)';
   }
 
   @override
@@ -149,15 +157,17 @@ class _$AccountStateImpl implements _AccountState {
             other is _$AccountStateImpl &&
             (identical(other.username, username) ||
                 other.username == username) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password) &&
-            (identical(other.token, token) || other.token == token));
+            (identical(other.accountId, accountId) ||
+                other.accountId == accountId) &&
+            (identical(other.sessionId, sessionId) ||
+                other.sessionId == sessionId) &&
+            (identical(other.requestToken, requestToken) ||
+                other.requestToken == requestToken));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, username, email, password, token);
+      Object.hash(runtimeType, username, accountId, sessionId, requestToken);
 
   @JsonKey(ignore: true)
   @override
@@ -169,18 +179,18 @@ class _$AccountStateImpl implements _AccountState {
 abstract class _AccountState implements AccountState {
   const factory _AccountState(
       {final String? username,
-      final String? email,
-      final String? password,
-      final String? token}) = _$AccountStateImpl;
+      final int? accountId,
+      final String? sessionId,
+      final String? requestToken}) = _$AccountStateImpl;
 
   @override
   String? get username;
   @override
-  String? get email;
+  int? get accountId;
   @override
-  String? get password;
+  String? get sessionId;
   @override
-  String? get token;
+  String? get requestToken;
   @override
   @JsonKey(ignore: true)
   _$$AccountStateImplCopyWith<_$AccountStateImpl> get copyWith =>

@@ -1,11 +1,13 @@
+import 'package:movie_lists/models/models.dart';
+
 abstract class MovieService {
   Future<String> getImages(int movieId);
 
-  // Movie getDetails(String movieId);
+  Future<Movie> getDetails(int movieId);
 
-  // List<Movie> getFavoriteMovies();
+  Future<List<Movie>> getFavoriteMovies();
 
-  // List<Movie> getWatchlistMovies();
+  Future<List<Movie>> getWatchlistMovies();
 
   Future<bool> addToFavorites(int movieId);
 

@@ -7,9 +7,9 @@ part 'state_models.freezed.dart';
 abstract class AccountState with _$AccountState{
   const factory AccountState({
     String? username,
-    String? email,
-    String? password,
-    String? token,
+    String? sessionId,
+    String? requestToken,
+    int? accountId,
   }) = _AccountState;
 }
 

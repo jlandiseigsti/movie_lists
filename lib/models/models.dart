@@ -1,9 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'models.freezed.dart';
+part 'models.g.dart';
 
 @freezed
-abstract class Movie with _$Movie {
+sealed class Movie with _$Movie {
   const factory Movie({
     bool? adult,
     String? backdropPath,
@@ -25,12 +26,16 @@ abstract class Movie with _$Movie {
     String? tagline,
     required String title
   }) = _Movie;
+
+  factory Movie.fromJson(Map<String, dynamic> json) => _$MovieFromJson(json);
 }
 
 @freezed
-abstract class Genre with _$Genre {
+sealed class Genre with _$Genre {
   const factory Genre({
     int? id,
     String? name,
   }) = _Genre;
+
+  factory Genre.fromJson(Map<String, dynamic> json) => _$GenreFromJson(json);
 }

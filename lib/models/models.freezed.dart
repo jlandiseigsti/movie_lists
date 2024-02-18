@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Movie _$MovieFromJson(Map<String, dynamic> json) {
+  return _Movie.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Movie {
   bool? get adult => throw _privateConstructorUsedError;
@@ -36,6 +40,7 @@ mixin _$Movie {
   String? get tagline => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $MovieCopyWith<Movie> get copyWith => throw _privateConstructorUsedError;
 }
@@ -323,7 +328,7 @@ class __$$MovieImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$MovieImpl implements _Movie {
   const _$MovieImpl(
       {this.adult,
@@ -346,6 +351,9 @@ class _$MovieImpl implements _Movie {
       this.tagline,
       required this.title})
       : _genres = genres;
+
+  factory _$MovieImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MovieImplFromJson(json);
 
   @override
   final bool? adult;
@@ -434,6 +442,7 @@ class _$MovieImpl implements _Movie {
             (identical(other.title, title) || other.title == title));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -463,6 +472,13 @@ class _$MovieImpl implements _Movie {
   @pragma('vm:prefer-inline')
   _$$MovieImplCopyWith<_$MovieImpl> get copyWith =>
       __$$MovieImplCopyWithImpl<_$MovieImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$MovieImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Movie implements Movie {
@@ -486,6 +502,8 @@ abstract class _Movie implements Movie {
       final String? status,
       final String? tagline,
       required final String title}) = _$MovieImpl;
+
+  factory _Movie.fromJson(Map<String, dynamic> json) = _$MovieImpl.fromJson;
 
   @override
   bool? get adult;
@@ -531,11 +549,16 @@ abstract class _Movie implements Movie {
       throw _privateConstructorUsedError;
 }
 
+Genre _$GenreFromJson(Map<String, dynamic> json) {
+  return _Genre.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Genre {
   int? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GenreCopyWith<Genre> get copyWith => throw _privateConstructorUsedError;
 }
@@ -615,9 +638,12 @@ class __$$GenreImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$GenreImpl implements _Genre {
   const _$GenreImpl({this.id, this.name});
+
+  factory _$GenreImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GenreImplFromJson(json);
 
   @override
   final int? id;
@@ -638,6 +664,7 @@ class _$GenreImpl implements _Genre {
             (identical(other.name, name) || other.name == name));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name);
 
@@ -646,10 +673,19 @@ class _$GenreImpl implements _Genre {
   @pragma('vm:prefer-inline')
   _$$GenreImplCopyWith<_$GenreImpl> get copyWith =>
       __$$GenreImplCopyWithImpl<_$GenreImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$GenreImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Genre implements Genre {
   const factory _Genre({final int? id, final String? name}) = _$GenreImpl;
+
+  factory _Genre.fromJson(Map<String, dynamic> json) = _$GenreImpl.fromJson;
 
   @override
   int? get id;
